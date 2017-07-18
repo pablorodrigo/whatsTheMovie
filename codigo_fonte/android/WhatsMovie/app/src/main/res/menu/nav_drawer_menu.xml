@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group>
+        <item
+            android:id="@+id/nav_item_cadastrar"
+            android:checked="true"
+            android:icon="@drawable/ic_plus_black_24dp"
+            android:title="@string/title_cadastrar_filmes" />
+        <item
+            android:id="@+id/nav_item_listar"
+            android:checked="true"
+            android:icon="@drawable/ic_theater_black_24dp"
+            android:title="@string/title_listar_filmes" />
+
+    </group>
+
+
+    <group>
+        <item
+            android:id="@+id/nav_item_sobre"
+            android:icon="@drawable/ic_information_black_24dp"
+            android:title="@string/sobre" />
+    </group>
+
+
+</menu>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">What\'s the Movie</string>
+    <string name="title_cadastrar_filmes">Add a movie</string>
+    <string name="title_listar_filmes">List Movies</string>
+    <string name="sobre">About</string>
+</resources>

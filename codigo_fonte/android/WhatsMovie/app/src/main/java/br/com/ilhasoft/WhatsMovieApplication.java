@@ -3,6 +3,8 @@ package br.com.ilhasoft;
 import android.app.Application;
 import android.util.Log;
 
+import com.orm.SugarContext;
+
 /**
  * Created by pablo on 7/17/17.
  */
@@ -18,6 +20,7 @@ public class WhatsMovieApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        SugarContext.init(this);
         Log.d(TAG, "WhatsMovieApplication.onCreate()");
         // Salva a instância para termos acesso como Singleton
         instance = this;
@@ -26,6 +29,7 @@ public class WhatsMovieApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
+        SugarContext.terminate();
         Log.d(TAG, "WhatsMovieApplication.onTerminate()");
     }
 }

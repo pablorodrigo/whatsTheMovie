@@ -68,11 +68,11 @@ public class GenericActivity extends AppCompatActivity {
                 toast("Clicou em Cadastrar");
                 break;
             case R.id.nav_item_listar:
-                replaceFragment(FilmesFragment.newInstance("Teste2"));
+                //replaceFragment(FilmesFragment.newInstance("Teste2"));
                 toast("Clicou em Listar");
                 break;
             case R.id.nav_item_sobre:
-                replaceFragment(FilmesFragment.newInstance("Teste3"));
+                //replaceFragment(FilmesFragment.newInstance("Teste3"));
                 toast("Clicou em Sobre");
                 break;
         }

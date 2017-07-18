@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">What\'s the Movie</string>
-    <string name="title_cadastrar_filmes">Add a movie</string>
-    <string name="title_listar_filmes">List Movies</string>
-    <string name="sobre">About</string>
+
+    <!--nav_drawer_menu -->
+    <string name="title_cadastrar_filmes">Cadastrar Filmes</string>
+    <string name="title_listar_filmes">Listar Filmes</string>
+    <string name="sobre">Sobre</string>
+
+    <!-- exceções -->
+    <string name="salvarDadoErrorMenssagem">Erro ao salvar o registro</string>
+    <string name="deletarDadoErrorMessage">Erro ao deletar o registro</string>
 </resources>

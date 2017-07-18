@@ -2,7 +2,7 @@
 >Desafio realizado pela ilhasoft. 
 
 
-# Descrição do teste
+# Descrição do teste:
 
 O OMDb possui uma API Rest de consulta de filmes. (http://www.omdbapi.com).
 
@@ -10,17 +10,17 @@ O objetivo é criar um app que possibilite o cadastro de filmes (inputando apena
 
 Os filmes escolhidos devem ser salvos e carregados até mesmo quando o aplicativo for utilizado sem internet. Use a criatividade na forma de exibição da coleção dos filmes e também no detalhamento do mesmo.
 
-### Considerações
+### Considerações:
 
 - Não é permitido copiar código ou pedir ajuda de outras pessoas;
 - Não determinamos tempo fixo para finalizar o teste, porém consideramos como critério o equilíbrio entre tempo e qualidade.
 
-### Código
+### Código:
 
 Tecnologias que devem ser utilizadas:
 Java ou Kotlin
 
-### Bibliotecas/Arquitetura
+### Bibliotecas/Arquitetura:
 
 No teste é livre o uso de bibliotecas e arquitetura de projeto, porém segue abaixo algumas que utilizamos e utilizando-as a nota na avaliação final aumenta. As bibliotecas/arquiteturas são:
 

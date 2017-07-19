@@ -26,7 +26,7 @@ public class FilmeTask {
     /**
      * metodo que faz get sobre um filme passado por parametro
      *
-     * @param filme
+     * @param filme filme a ser cadastrado
      */
     public void getFilme(final Context context, String filme) {
 
@@ -52,26 +52,26 @@ public class FilmeTask {
                 try {
 
                     if (response.get("Response").equals("False")) {
-                        Toast.makeText(context, "Filme não encontrado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.filmeNaoEncontrado, Toast.LENGTH_LONG).show();
                     } else if (!Filme.find(Filme.class, "title = ?", response.get("Title").toString()).isEmpty()) {
-                        Toast.makeText(context, "Filme já estava cadastrado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.filmeJaCadastrado, Toast.LENGTH_LONG).show();
                     } else {
 
                         Filme filme = new Filme();
-                        filme.setTitle(response.get("Title").toString());
-                        filme.setYear(response.get("Year").toString());
-                        filme.setReleased(response.get("Released").toString());
-                        filme.setRuntime(response.get("Runtime").toString());
-                        filme.setGenre(response.get("Genre").toString());
-                        filme.setPlot(response.get("Plot").toString());
-                        filme.setAwards(response.get("Awards").toString());
-                        filme.setPoster(response.get("Poster").toString());
-                        filme.setImdbRating(response.get("imdbRating").toString());
-                        filme.setProduction(response.get("Production").toString());
-                        filme.setWebsite(response.get("Website").toString());
+                        filme.setTitle(response.has("Title") ? response.get("Title").toString() : "");
+                        filme.setYear(response.has("Year") ? response.get("Year").toString() : "Não Disponível");
+                        filme.setReleased(response.has("Released") ? response.get("Released").toString() : "Não Disponível");
+                        filme.setRuntime(response.has("Runtime") ? response.get("Runtime").toString() : "Não Disponível");
+                        filme.setGenre(response.has("Genre") ? response.get("Genre").toString() : "Não Disponível");
+                        filme.setPlot(response.has("Plot") ? response.get("Plot").toString() : "Não Disponível");
+                        filme.setAwards(response.has("Awards") ? response.get("Awards").toString() : "Não Disponível");
+                        filme.setPoster(response.has("Poster") ? response.get("Poster").toString() : "");
+                        filme.setImdbRating(response.has("imdbRating") ? response.get("imdbRating").toString() : "Não Disponível");
+                        filme.setProduction(response.has("Production") ? response.get("Production").toString() : "Não Disponível");
+                        filme.setWebsite(response.has("Website") ? response.get("Website").toString() : "Não Disponível");
 
                         Filme.save(filme);
-
+                        Toast.makeText(context, R.string.filmeCadastroSucesso, Toast.LENGTH_LONG).show();
                         context.sendBroadcast(new Intent("listarFilmes"));
 
                     }

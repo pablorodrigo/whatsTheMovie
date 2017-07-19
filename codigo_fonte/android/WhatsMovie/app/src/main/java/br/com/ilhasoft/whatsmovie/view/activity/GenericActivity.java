@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import br.com.ilhasoft.whatsmovie.R;
+import br.com.ilhasoft.whatsmovie.view.fragment.BuscarDialogFragment;
 import br.com.ilhasoft.whatsmovie.view.fragment.FilmesFragment;
 
 /**
@@ -64,12 +65,10 @@ public class GenericActivity extends AppCompatActivity {
     private void onNavDrawerItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_item_cadastrar:
-                replaceFragment(FilmesFragment.newInstance("Teste1"));
-                toast("Clicou em Cadastrar");
+                BuscarDialogFragment.showDialog(getSupportFragmentManager());
                 break;
             case R.id.nav_item_listar:
-                //replaceFragment(FilmesFragment.newInstance("Teste2"));
-                toast("Clicou em Listar");
+                replaceFragment(new FilmesFragment());
                 break;
             case R.id.nav_item_sobre:
                 //replaceFragment(FilmesFragment.newInstance("Teste3"));

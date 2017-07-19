@@ -60,8 +60,7 @@ public class GenericDAO<T extends GenericBean> implements Serializable {
      * Metodo para listar todas as entidades do banco de dados
      */
     public List<T> listAll() {
-        List<T> lista = SugarRecord.listAll(classe);
-        return lista;
+        return SugarRecord.listAll(classe);
     }
 
     /**

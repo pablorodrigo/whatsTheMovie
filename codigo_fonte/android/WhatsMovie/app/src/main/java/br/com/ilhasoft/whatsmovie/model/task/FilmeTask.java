@@ -1,5 +1,9 @@
 package br.com.ilhasoft.whatsmovie.model.task;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
@@ -21,7 +25,7 @@ public class FilmeTask {
      *
      * @param filme
      */
-    public void getFilme(String filme) {
+    public void getFilme(final Context context, String filme) {
         AsynsHttpClient.get(Urls.URL_LISTAR_FILME_INICIO + filme + Urls.URL_LISTAR_FILME_FIM, null, new JsonHttpResponseHandler() {
 
             @Override
@@ -29,24 +33,33 @@ public class FilmeTask {
                 // called when response HTTP status is "200 OK"
                 //Log.d("response", "" + response.toString());
 
-                Filme filme = new Filme();
-
                 try {
 
-                    filme.setTitle(response.get("Title").toString());
-                    filme.setYear(response.get("Year").toString());
-                    filme.setReleased(response.get("Released").toString());
-                    filme.setRuntime(response.get("Runtime").toString());
-                    filme.setGenre(response.get("Genre").toString());
-                    filme.setPlot(response.get("Plot").toString());
-                    filme.setAwards(response.get("Awards").toString());
-                    filme.setPoster(response.get("Poster").toString());
-                    filme.setImdbRating(response.get("imdbRating").toString());
-                    filme.setProduction(response.get("Production").toString());
-                    filme.setWebsite(response.get("Website").toString());
+                    if (response.get("Response").equals("False")) {
+                        Log.d("task", "não existe esse filme");
+                    } else if (!Filme.find(Filme.class, "title = ?", response.get("Title").toString()).isEmpty()) {
+                        Log.d("task", "filme ja contem no banco de dados");
+                    } else {
 
-                    Filme.save(filme);
+                        Filme filme = new Filme();
+                        filme.setTitle(response.get("Title").toString());
+                        filme.setYear(response.get("Year").toString());
+                        filme.setReleased(response.get("Released").toString());
+                        filme.setRuntime(response.get("Runtime").toString());
+                        filme.setGenre(response.get("Genre").toString());
+                        filme.setPlot(response.get("Plot").toString());
+                        filme.setAwards(response.get("Awards").toString());
+                        filme.setPoster(response.get("Poster").toString());
+                        filme.setImdbRating(response.get("imdbRating").toString());
+                        filme.setProduction(response.get("Production").toString());
+                        filme.setWebsite(response.get("Website").toString());
 
+                        Filme.save(filme);
+
+                        context.sendBroadcast(new Intent("listarFilmes"));
+                    }
+
+                    ;
 
                 } catch (JSONException e) {
                     e.printStackTrace();

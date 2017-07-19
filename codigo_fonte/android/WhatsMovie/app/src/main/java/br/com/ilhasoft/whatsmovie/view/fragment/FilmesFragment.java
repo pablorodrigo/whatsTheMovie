@@ -1,6 +1,9 @@
 package br.com.ilhasoft.whatsmovie.view.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.List;
 
 import br.com.ilhasoft.whatsmovie.R;
 import br.com.ilhasoft.whatsmovie.model.bean.Filme;
@@ -35,6 +40,17 @@ public class FilmesFragment extends GenericFragment {
     private FilmePresenter filmePresenter;
     private FilmesAdapter adapter;
 
+    //metodo que executa quando receber os dados da api e atualiza a lista
+    private BroadcastReceiver broadcastReceiver_listarFilmes = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            adapter = new FilmesAdapter(getContext(), filmePresenter.getDao().listAll(), null);
+            recyclerView.setAdapter(adapter);
+
+        }
+    };
+
     // Método para instanciar esse fragment pela categoria se tiver.
     public static FilmesFragment newInstance(String categoria) {
         Bundle args = new Bundle();
@@ -52,6 +68,7 @@ public class FilmesFragment extends GenericFragment {
             // Lê o tipo dos argumentos.
             this.categoria = getArguments().getString("categoria");
         }
+        getActivity().registerReceiver(broadcastReceiver_listarFilmes, new IntentFilter("listarFilmes"));
     }
 
     @Override
@@ -81,6 +98,12 @@ public class FilmesFragment extends GenericFragment {
         filmePresenter = new FilmePresenter(getContext(), Filme.class, new FilmeDAO(getContext(), Filme.class));
         adapter = new FilmesAdapter(getContext(), filmePresenter.getDao().listAll(), null);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getContext().unregisterReceiver(broadcastReceiver_listarFilmes);
     }
 
 }

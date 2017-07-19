@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -37,6 +38,12 @@ public class FilmesFragment extends GenericFragment {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
+    @BindView(R.id.img_vazio)
+    ImageView imageView_vazio;
+
+    @BindView(R.id.tv_vazio)
+    TextView textView_vazio;
+
     private FilmePresenter filmePresenter;
     private FilmesAdapter adapter;
 
@@ -45,8 +52,19 @@ public class FilmesFragment extends GenericFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            adapter = new FilmesAdapter(getContext(), filmePresenter.getDao().listAll(), null);
-            recyclerView.setAdapter(adapter);
+            List<Filme> listaFilme = filmePresenter.listar();
+
+            if (listaFilme.isEmpty()) {
+                recyclerView.setVisibility(View.GONE);
+                imageView_vazio.setVisibility(View.VISIBLE);
+                textView_vazio.setVisibility(View.VISIBLE);
+            } else {
+                recyclerView.setVisibility(View.VISIBLE);
+                imageView_vazio.setVisibility(View.GONE);
+                textView_vazio.setVisibility(View.GONE);
+                adapter = new FilmesAdapter(getContext(), listaFilme, null);
+                recyclerView.setAdapter(adapter);
+            }
 
         }
     };
@@ -96,8 +114,15 @@ public class FilmesFragment extends GenericFragment {
     private void taskFilmes() {
 
         filmePresenter = new FilmePresenter(getContext(), Filme.class, new FilmeDAO(getContext(), Filme.class));
-        adapter = new FilmesAdapter(getContext(), filmePresenter.getDao().listAll(), null);
-        recyclerView.setAdapter(adapter);
+
+        if (filmePresenter.listar().isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            imageView_vazio.setVisibility(View.VISIBLE);
+            textView_vazio.setVisibility(View.VISIBLE);
+        } else {
+            adapter = new FilmesAdapter(getContext(), filmePresenter.listar(), null);
+            recyclerView.setAdapter(adapter);
+        }
     }
 
     @Override

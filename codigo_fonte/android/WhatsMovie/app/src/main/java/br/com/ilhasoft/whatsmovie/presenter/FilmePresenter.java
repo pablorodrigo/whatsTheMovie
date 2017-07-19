@@ -2,6 +2,7 @@ package br.com.ilhasoft.whatsmovie.presenter;
 
 import android.content.Context;
 
+import br.com.ilhasoft.whatsmovie.model.dao.FilmeDAO;
 import br.com.ilhasoft.whatsmovie.model.dao.GenericDAO;
 
 /**
@@ -9,7 +10,7 @@ import br.com.ilhasoft.whatsmovie.model.dao.GenericDAO;
  */
 
 public class FilmePresenter extends GenericPresenter {
-    public FilmePresenter(Context context, Class classe, GenericDAO dao) {
+    public FilmePresenter(Context context, Class classe, FilmeDAO dao) {
         super(context, classe, dao);
     }
 }

@@ -53,6 +53,13 @@ public class GenericPresenter<T extends GenericBean, E extends GenericDAO<T>> im
         }
     }
 
+    /**
+     * Lista de registros
+     */
+    public List<T> listar() {
+        return dao.listAll();
+    }
+
     public GenericDAO<T> getDao() {
         return dao;
     }

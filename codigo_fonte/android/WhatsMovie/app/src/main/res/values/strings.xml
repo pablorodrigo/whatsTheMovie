@@ -11,6 +11,9 @@
     <string name="salvarDadoErrorMenssagem">Erro ao salvar o registro</string>
     <string name="deletarDadoErrorMessage">Erro ao deletar o registro</string>
 
+    <!-- recycle views -->
+    <string name="listaVazia">Nenhum filme cadastrado no momento</string>
+
     <!-- feedbacks -->
     <string name="filmeNaoEncontrado">Filme não encontrato</string>
     <string name="filmeJaCadastrado">Filme já estava cadastrado</string>

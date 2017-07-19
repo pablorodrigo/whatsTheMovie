@@ -1,14 +1,17 @@
 package br.com.ilhasoft.whatsmovie.model.task;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import br.com.ilhasoft.whatsmovie.R;
 import br.com.ilhasoft.whatsmovie.model.bean.Filme;
 import br.com.ilhasoft.whatsmovie.utils.Urls;
 import cz.msebera.android.httpclient.Header;
@@ -26,19 +29,32 @@ public class FilmeTask {
      * @param filme
      */
     public void getFilme(final Context context, String filme) {
+
+        final ProgressDialog progressDialog = ProgressDialog.show(context, context.getResources().getString(R.string.progress_aguarde),
+                context.getResources().getString(R.string.progress_conectando), true, true);
+        progressDialog.setCancelable(false);
+
+
         AsynsHttpClient.get(Urls.URL_LISTAR_FILME_INICIO + filme + Urls.URL_LISTAR_FILME_FIM, null, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onStart() {
+                progressDialog.show();
+            }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // called when response HTTP status is "200 OK"
                 //Log.d("response", "" + response.toString());
 
+                progressDialog.setMessage(context.getResources().getString(R.string.progress_recebendo));
+
                 try {
 
                     if (response.get("Response").equals("False")) {
-                        Log.d("task", "não existe esse filme");
+                        Toast.makeText(context, "Filme não encontrado", Toast.LENGTH_LONG).show();
                     } else if (!Filme.find(Filme.class, "title = ?", response.get("Title").toString()).isEmpty()) {
-                        Log.d("task", "filme ja contem no banco de dados");
+                        Toast.makeText(context, "Filme já estava cadastrado", Toast.LENGTH_LONG).show();
                     } else {
 
                         Filme filme = new Filme();
@@ -57,10 +73,10 @@ public class FilmeTask {
                         Filme.save(filme);
 
                         context.sendBroadcast(new Intent("listarFilmes"));
+
                     }
 
-                    ;
-
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

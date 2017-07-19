@@ -10,4 +10,12 @@
     <!-- exceções -->
     <string name="salvarDadoErrorMenssagem">Erro ao salvar o registro</string>
     <string name="deletarDadoErrorMessage">Erro ao deletar o registro</string>
+
+    <!-- progressDialog tasks -->
+    <string name="progress_aguarde">Aguarde...</string>
+    <string name="progress_conectando">Se conectando ao Servidor</string>
+    <string name="progress_tentativas">tentativas</string>
+    <string name="progress_recebendo">Recebendo dados do Servidor</string>
+    <string name="progress_falha">Desculpe o transtorno! Verifique sua conexão. Se o problema persistir, nosso servidor pode está com problemas. Mas ainda é possível usar o aplicativo</string>
+    <string name="progress_fechar">Fechar</string>
 </resources>

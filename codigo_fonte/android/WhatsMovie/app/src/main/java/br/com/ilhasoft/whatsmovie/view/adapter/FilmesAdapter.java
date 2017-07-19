@@ -56,6 +56,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.FilmesView
 
                     @Override
                     public void onError() {
+                        holder.imageView_poster.setImageResource(R.drawable.no_image);
                         holder.progress.setVisibility(View.GONE);
                     }
                 });

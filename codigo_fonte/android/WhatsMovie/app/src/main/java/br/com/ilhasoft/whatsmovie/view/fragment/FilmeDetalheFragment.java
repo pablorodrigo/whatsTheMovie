@@ -1,7 +1,14 @@
 package br.com.ilhasoft.whatsmovie.view.fragment;
 
+import android.Manifest;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -74,6 +81,22 @@ public class FilmeDetalheFragment extends GenericFragment {
         textView_paginaWeb.setText(filme.getWebsite());
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_frag_filme, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.menu_paginaWeb) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(filme.getWebsite()));
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

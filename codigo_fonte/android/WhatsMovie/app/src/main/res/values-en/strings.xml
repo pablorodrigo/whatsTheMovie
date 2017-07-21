@@ -18,6 +18,7 @@
     <string name="filmeNaoEncontrado">Movie not found</string>
     <string name="filmeJaCadastrado">Movie already registered</string>
     <string name="filmeCadastroSucesso">Movie successfully registered</string>
+    <string name="semConexao">It\'s not possible to add a movie because the device doesn\'t have internet connection</string>
 
     <!-- alerta dialog -->
     <string name="alert_sair">Exit</string>

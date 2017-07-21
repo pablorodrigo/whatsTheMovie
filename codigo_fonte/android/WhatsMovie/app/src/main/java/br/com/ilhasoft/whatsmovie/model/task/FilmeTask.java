@@ -91,9 +91,18 @@ public class FilmeTask {
                 progressDialog.dismiss();
                 new AlertDialog.Builder(context).setTitle("Error")
                         .setMessage(context.getResources().getString(R.string.progress_falha))
-                        .setNeutralButton("Fechar", null).show();
+                        .setNeutralButton(R.string.alert_sair, null).show();
                 context.sendBroadcast(new Intent("listarFilmes"));
                 super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+
+            @Override
+            public void onRetry(int retryNo) {
+                progressDialog.setTitle(context.getResources().getString(R.string.progress_aguarde) +
+                        retryNo +
+                        "-5 " +
+                        context.getResources().getString(R.string.progress_tentativas));
+                // called when request is retried
             }
         });
     }

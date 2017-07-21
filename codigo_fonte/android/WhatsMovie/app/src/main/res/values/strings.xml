@@ -18,6 +18,7 @@
     <string name="filmeNaoEncontrado">Filme não encontrato</string>
     <string name="filmeJaCadastrado">Filme já estava cadastrado</string>
     <string name="filmeCadastroSucesso">Filme cadastrado com sucesso</string>
+    <string name="semConexao">Não é possivel cadastrar porque o dispositivo não possui conexão com internet</string>
 
     <!-- alerta dialog -->
     <string name="alert_sair">Sair</string>
@@ -26,6 +27,7 @@
     <string name="alert_nao">Não</string>
     <string name="alert_mensagem_internet">Foi detectado que seu dispositivo não está conectado a internet, verifique sua conexão. Mas ainda é possível usar o aplicativo</string>
     <string name="alert_aviso">Atenção</string>
+    <string name="ok">OK</string>
 
     <!-- progressDialog tasks -->
     <string name="progress_aguarde">Aguarde...</string>

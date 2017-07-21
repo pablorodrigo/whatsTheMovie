@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import br.com.ilhasoft.whatsmovie.R;
+import br.com.ilhasoft.whatsmovie.utils.IlhasoftUtil;
 import br.com.ilhasoft.whatsmovie.view.fragment.BuscarDialogFragment;
 import br.com.ilhasoft.whatsmovie.view.fragment.FilmesFragment;
 
@@ -65,13 +66,16 @@ public class GenericActivity extends AppCompatActivity {
     private void onNavDrawerItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_item_cadastrar:
-                BuscarDialogFragment.showDialog(getSupportFragmentManager());
+                if (IlhasoftUtil.isDataConnectionAvailable(getContext())) {
+                    BuscarDialogFragment.showDialog(getSupportFragmentManager());
+                } else {
+                    Toast.makeText(getContext(), R.string.semConexao, Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.nav_item_listar:
                 replaceFragment(new FilmesFragment());
                 break;
             case R.id.nav_item_sobre:
-                //replaceFragment(FilmesFragment.newInstance("Teste3"));
                 toast("Clicou em Sobre");
                 break;
         }

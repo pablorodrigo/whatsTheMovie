@@ -76,7 +76,7 @@ public class FilmesAdapter extends RecyclerView.Adapter<FilmesAdapter.FilmesView
         return this.listaFilmes != null ? this.listaFilmes.size() : 0;
     }
 
-    interface FilmeOnClickListener {
+    public interface FilmeOnClickListener {
         void onClickFilme(View view, int idx, List<Filme> listaFilmes);
     }
 

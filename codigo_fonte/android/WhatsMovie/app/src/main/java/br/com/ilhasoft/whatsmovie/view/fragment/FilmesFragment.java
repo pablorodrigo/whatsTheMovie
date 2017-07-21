@@ -16,12 +16,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import br.com.ilhasoft.whatsmovie.R;
 import br.com.ilhasoft.whatsmovie.model.bean.Filme;
 import br.com.ilhasoft.whatsmovie.model.dao.FilmeDAO;
 import br.com.ilhasoft.whatsmovie.presenter.FilmePresenter;
+import br.com.ilhasoft.whatsmovie.view.activity.FilmeDetalheActivity;
 import br.com.ilhasoft.whatsmovie.view.adapter.FilmesAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +65,7 @@ public class FilmesFragment extends GenericFragment {
                 recyclerView.setVisibility(View.VISIBLE);
                 imageView_vazio.setVisibility(View.GONE);
                 textView_vazio.setVisibility(View.GONE);
-                adapter = new FilmesAdapter(getContext(), listaFilme, null);
+                adapter = new FilmesAdapter(getContext(), listaFilme, onClickFilme());
                 recyclerView.setAdapter(adapter);
             }
 
@@ -120,9 +123,22 @@ public class FilmesFragment extends GenericFragment {
             imageView_vazio.setVisibility(View.VISIBLE);
             textView_vazio.setVisibility(View.VISIBLE);
         } else {
-            adapter = new FilmesAdapter(getContext(), filmePresenter.listar(), null);
+            adapter = new FilmesAdapter(getContext(), filmePresenter.listar(), onClickFilme());
             recyclerView.setAdapter(adapter);
         }
+    }
+
+    private FilmesAdapter.FilmeOnClickListener onClickFilme() {
+        return new FilmesAdapter.FilmeOnClickListener() {
+            @Override
+            public void onClickFilme(View view, int idx, List<Filme> listaFilmes) {
+                Filme filme = listaFilmes.get(idx);
+                Intent intent = new Intent(getContext(), FilmeDetalheActivity.class);
+                intent.putExtra("filme", Parcels.wrap(filme));
+                startActivity(intent);
+            }
+
+        };
     }
 
     @Override

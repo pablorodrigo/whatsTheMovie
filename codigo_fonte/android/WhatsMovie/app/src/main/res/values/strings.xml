@@ -19,11 +19,30 @@
     <string name="filmeJaCadastrado">Filme já estava cadastrado</string>
     <string name="filmeCadastroSucesso">Filme cadastrado com sucesso</string>
 
+    <!-- alerta dialog -->
+    <string name="alert_sair">Sair</string>
+    <string name="alert_mensagem">Você realmente quer fechar o aplicativo?</string>
+    <string name="alert_sim">Sim</string>
+    <string name="alert_nao">Não</string>
+    <string name="alert_mensagem_internet">Foi detectado que seu dispositivo não está conectado a internet, verifique sua conexão. Mas ainda é possível usar o aplicativo</string>
+    <string name="alert_aviso">Atenção</string>
+
     <!-- progressDialog tasks -->
     <string name="progress_aguarde">Aguarde...</string>
     <string name="progress_conectando">Se conectando ao Servidor</string>
     <string name="progress_tentativas">tentativas</string>
     <string name="progress_recebendo">Recebendo dados do Servidor</string>
-    <string name="progress_falha">Desculpe o transtorno! Verifique sua conexão. Se o problema persistir, nosso servidor pode está com problemas. Mas ainda é possível usar o aplicativo</string>
+    <string name="progress_falha">Desculpe o transtorno! Verifique sua conexão. Se o problema persistir, nosso servidor pode está com problemas. Mas ainda é possível usar o aplicativo!</string>
     <string name="progress_fechar">Fechar</string>
+
+    <!-- Fragment detalhe -->
+    <string name="descricao">Descrição</string>
+    <string name="genero">Gênero</string>
+    <string name="dataLancamento">Data de Lançamento</string>
+    <string name="duracao">Duração</string>
+    <string name="premios">Premiações</string>
+    <string name="nota">Nota</string>
+    <string name="producao">Produção</string>
+    <string name="paginaWeb">Site</string>
+
 </resources>

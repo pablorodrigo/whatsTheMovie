@@ -3,11 +3,45 @@
     <string name="app_name">What\'s the Movie</string>
 
     <!--nav_drawer_menu -->
-    <string name="title_cadastrar_filmes">Cadastrar Filmes</string>
-    <string name="title_listar_filmes">Listar Filmes</string>
-    <string name="sobre">Sobre</string>
+    <string name="title_cadastrar_filmes">Add Movie</string>
+    <string name="title_listar_filmes">List Movies</string>
+    <string name="sobre">About</string>
 
     <!-- exceções -->
     <string name="salvarDadoErrorMenssagem">Erro ao salvar o registro</string>
     <string name="deletarDadoErrorMessage">Erro ao deletar o registro</string>
+
+    <!-- recycle views -->
+    <string name="listaVazia">No movie Registered yet</string>
+
+    <!-- feedbacks -->
+    <string name="filmeNaoEncontrado">Movie not found</string>
+    <string name="filmeJaCadastrado">Movie already registered</string>
+    <string name="filmeCadastroSucesso">Movie successfully registered</string>
+
+    <!-- alerta dialog -->
+    <string name="alert_sair">Exit</string>
+    <string name="alert_mensagem">Do you really want to close the application?</string>
+    <string name="alert_sim">Yes</string>
+    <string name="alert_nao">No</string>
+    <string name="alert_mensagem_internet">It has been detected that your device is not connected to the internet, check your connection. But you can still use the app</string>
+    <string name="alert_aviso">Warning</string>
+
+    <!-- progressDialog tasks -->
+    <string name="progress_aguarde">Wait...</string>
+    <string name="progress_conectando">Connecting to Server</string>
+    <string name="progress_tentativas">attempts</string>
+    <string name="progress_recebendo">Receiving data from the server</string>
+    <string name="progress_falha">Sorry for the inconvenience! Check your connection. If the problem persists, maybe it\'s server problem. But you can still use the app</string>
+    <string name="progress_fechar">Exit</string>
+
+    <!-- Fragment detalhe -->
+    <string name="descricao">Description</string>
+    <string name="genero">Genre</string>
+    <string name="dataLancamento">Released</string>
+    <string name="duracao">Time</string>
+    <string name="premios">Awards</string>
+    <string name="nota">Score</string>
+    <string name="producao">Production</string>
+    <string name="paginaWeb">WebSite</string>
 </resources>

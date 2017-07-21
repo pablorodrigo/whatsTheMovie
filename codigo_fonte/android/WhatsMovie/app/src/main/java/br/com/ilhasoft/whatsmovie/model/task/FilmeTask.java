@@ -1,9 +1,9 @@
 package br.com.ilhasoft.whatsmovie.model.task;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -58,17 +58,19 @@ public class FilmeTask {
                     } else {
 
                         Filme filme = new Filme();
-                        filme.setTitle(response.has("Title") ? response.get("Title").toString() : "");
-                        filme.setYear(response.has("Year") ? response.get("Year").toString() : "Não Disponível");
-                        filme.setReleased(response.has("Released") ? response.get("Released").toString() : "Não Disponível");
-                        filme.setRuntime(response.has("Runtime") ? response.get("Runtime").toString() : "Não Disponível");
-                        filme.setGenre(response.has("Genre") ? response.get("Genre").toString() : "Não Disponível");
-                        filme.setPlot(response.has("Plot") ? response.get("Plot").toString() : "Não Disponível");
-                        filme.setAwards(response.has("Awards") ? response.get("Awards").toString() : "Não Disponível");
-                        filme.setPoster(response.has("Poster") ? response.get("Poster").toString() : "");
-                        filme.setImdbRating(response.has("imdbRating") ? response.get("imdbRating").toString() : "Não Disponível");
-                        filme.setProduction(response.has("Production") ? response.get("Production").toString() : "Não Disponível");
-                        filme.setWebsite(response.has("Website") ? response.get("Website").toString() : "Não Disponível");
+
+                        //se um dos campos nao existir ou nao tiver nenhum dado relevante, é a setado Nao Disponivel no atributo.
+                        filme.setTitle(!response.has("Title") || response.get("Title").toString().equals("N/A") ? "Não Disponível" : response.get("Title").toString());
+                        filme.setYear(!response.has("Year") || response.get("Year").toString().equals("N/A") ? "Não Disponível" : response.get("Year").toString());
+                        filme.setReleased(!response.has("Released") || response.get("Released").toString().equals("N/A") ? "Não Disponível" : response.get("Released").toString());
+                        filme.setRuntime(!response.has("Runtime") || response.get("Runtime").toString().equals("N/A") ? "Não Disponível" : response.get("Runtime").toString());
+                        filme.setGenre(!response.has("Genre") || response.get("Genre").toString().equals("N/A") ? "Não Disponível" : response.get("Genre").toString());
+                        filme.setPlot(!response.has("Plot") || response.get("Plot").toString().equals("N/A") ? "Não Disponível" : response.get("Plot").toString());
+                        filme.setAwards(!response.has("Awards") || response.get("Awards").toString().equals("N/A") ? "Não Disponível" : response.get("Awards").toString());
+                        filme.setPoster(!response.has("Poster") || response.get("Poster").toString().equals("N/A") ? "Não Disponível" : response.get("Poster").toString());
+                        filme.setImdbRating(!response.has("imdbRating") || response.get("imdbRating").toString().equals("N/A") ? "Não Disponível" : response.get("imdbRating").toString());
+                        filme.setProduction(!response.has("Production") || response.get("Production").toString().equals("N/A") ? "Não Disponível" : response.get("Production").toString());
+                        filme.setWebsite(!response.has("Website") || response.get("Website").toString().equals("N/A") ? "Não Disponível" : response.get("Website").toString());
 
                         Filme.save(filme);
                         Toast.makeText(context, R.string.filmeCadastroSucesso, Toast.LENGTH_LONG).show();
@@ -82,6 +84,16 @@ public class FilmeTask {
                 }
 
 
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                progressDialog.dismiss();
+                new AlertDialog.Builder(context).setTitle("Error")
+                        .setMessage(context.getResources().getString(R.string.progress_falha))
+                        .setNeutralButton("Fechar", null).show();
+                context.sendBroadcast(new Intent("listarFilmes"));
+                super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
     }

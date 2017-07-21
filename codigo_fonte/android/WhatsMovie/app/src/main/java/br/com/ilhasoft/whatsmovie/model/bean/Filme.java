@@ -4,6 +4,7 @@ package br.com.ilhasoft.whatsmovie.model.bean;
  * Created by pablo on 7/17/17.
  */
 
+@org.parceler.Parcel
 public class Filme extends GenericBean {
 
     private String title;

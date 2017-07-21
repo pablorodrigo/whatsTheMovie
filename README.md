@@ -46,5 +46,6 @@ Sendo usado padrão de projeto MVP (Model-View-Presenter)
  - SugarORM: Persistência no banco de dados SQLite (http://satyan.github.io/sugar/).
  - Butterknife: Para injetar as views (http://jakewharton.github.io/butterknife/).
  - Picasso: Para obter as imagens, criar caches em memória e em disco (http://square.github.io/picasso/).
+ - Android Asynchronous HttpClient: Conexão com algum serviço web (http://loopj.com/android-async-http/).
 
 # Imagens do Projeto

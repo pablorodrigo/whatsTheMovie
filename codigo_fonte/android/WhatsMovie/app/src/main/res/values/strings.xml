@@ -29,6 +29,7 @@
     <string name="alert_mensagem_internet">Foi detectado que seu dispositivo não está conectado a internet, verifique sua conexão. Mas ainda é possível usar o aplicativo</string>
     <string name="alert_aviso">Atenção</string>
     <string name="ok">OK</string>
+    <string name="alert_buscar">Buscar</string>
 
     <!-- progressDialog tasks -->
     <string name="progress_aguarde">Aguarde...</string>
@@ -47,5 +48,8 @@
     <string name="nota">Nota</string>
     <string name="producao">Produção</string>
     <string name="paginaWeb">Site</string>
+
+    <!-- Hints -->
+    <string name="hint_cadastrarFIlme">Digite aqui o filme a ser cadastrado</string>
 
 </resources>

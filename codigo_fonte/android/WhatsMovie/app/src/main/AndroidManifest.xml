@@ -27,16 +27,23 @@
             android:value="br.com.ilhasoft.whatsmovie.model.bean" />
 
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".view.activity.SplashScreenActivity"
             android:configChanges="orientation"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar.NavDrawer">
+            android:theme="@style/AppTheme.NoActionStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.NavDrawer">
         </activity>
 
         <activity

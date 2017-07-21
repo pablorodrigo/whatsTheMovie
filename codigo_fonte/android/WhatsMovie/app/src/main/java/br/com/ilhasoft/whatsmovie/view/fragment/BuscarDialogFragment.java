@@ -47,10 +47,10 @@ public class BuscarDialogFragment extends DialogFragment {
         editText_buscar.setMovementMethod(new LinkMovementMethod());
         // Cria o dialog customizado
         return new AlertDialog.Builder(getActivity())
-                .setTitle("Cadastrar Filme")
+                .setTitle(R.string.title_cadastrar_filmes)
                 .setView(editText_buscar)
-                .setNeutralButton("Cancelar", null)
-                .setPositiveButton("Buscar",
+                .setNeutralButton(R.string.alert_sair, null)
+                .setPositiveButton(R.string.alert_buscar,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 new FilmeTask().getFilme(getContext(), editText_buscar.getText().toString());

@@ -29,6 +29,7 @@
     <string name="alert_mensagem_internet">It has been detected that your device is not connected to the internet, check your connection. But you can still use the app</string>
     <string name="alert_aviso">Warning</string>
     <string name="ok">OK</string>
+    <string name="alert_buscar">Search</string>
 
     <!-- progressDialog tasks -->
     <string name="progress_aguarde">Wait...</string>
@@ -47,5 +48,8 @@
     <string name="nota">Score</string>
     <string name="producao">Production</string>
     <string name="paginaWeb">WebSite</string>
+
+    <!-- Hints -->
+    <string name="hint_cadastrarFIlme">Type the movie here</string>
 
 </resources>

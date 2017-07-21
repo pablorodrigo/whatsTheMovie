@@ -31,3 +31,20 @@ No teste é livre o uso de bibliotecas e arquitetura de projeto, porém segue ab
 - Retrofit;
 
 O tempo está contando a partir da data de recebimento do teste.
+
+# Estrutura do Projeto
+Sendo usado padrão de projeto MVP (Model-View-Presenter)
+
+ - Model: Pacote com os modelos de dados e persistência do dado no dispositivo.
+ - Presenter: Pacote com as regras de negocio
+ - View: Pacote com a responsabilidade de manipulação da View (Activitys, Fragments, Adapters).
+ - Util - Pacote com classes utilitárias para ser usada no projeto
+ - Tasks: Classes Tasks que são executadas para acessar e consumir serviços (webservice).
+
+# Frameworks utilizados
+
+ - SugarORM: Persistência no banco de dados SQLite (http://satyan.github.io/sugar/).
+ - Butterknife: Para injetar as views (http://jakewharton.github.io/butterknife/).
+ - Picasso: Para obter as imagens, criar caches em memória e em disco (http://square.github.io/picasso/).
+
+# Imagens do Projeto

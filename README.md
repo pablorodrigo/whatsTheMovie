@@ -49,3 +49,12 @@ Sendo usado padrão de projeto MVP (Model-View-Presenter)
  - Android Asynchronous HttpClient: Conexão com algum serviço web (http://loopj.com/android-async-http/).
 
 # Imagens do Projeto
+
+Tela de Apresentação exemplo             |  Listagem Filmes
+:-------------------------:|:-------------------------:
+![](/documentacao/imagens_app/tela_splash.png)  |  ![](/documentacao/imagens_app/tela_listagem.png)
+
+
+Detalhe do filme             |  Menu Lateral
+:-------------------------:|:-------------------------:
+![](/documentacao/imagens_app/tela_detalhe_filme.png)  |  ![](/documentacao/imagens_app/tela_menu_lateral.png)

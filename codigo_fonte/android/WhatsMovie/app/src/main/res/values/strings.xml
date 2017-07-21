@@ -19,6 +19,7 @@
     <string name="filmeJaCadastrado">Filme já estava cadastrado</string>
     <string name="filmeCadastroSucesso">Filme cadastrado com sucesso</string>
     <string name="semConexao">Não é possivel cadastrar porque o dispositivo não possui conexão com internet</string>
+    <string name="siteIndisponivel">Desculpe, site Indisponivel</string>
 
     <!-- alerta dialog -->
     <string name="alert_sair">Sair</string>

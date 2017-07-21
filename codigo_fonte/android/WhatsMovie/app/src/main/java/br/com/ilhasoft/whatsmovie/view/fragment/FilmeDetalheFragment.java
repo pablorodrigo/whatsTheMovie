@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -92,11 +93,14 @@ public class FilmeDetalheFragment extends GenericFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (item.getItemId() == R.id.menu_paginaWeb) {
+        if (item.getItemId() == R.id.menu_paginaWeb && !filme.getWebsite().equals("Não Disponível")) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(filme.getWebsite()));
             startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), R.string.siteIndisponivel, Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
+
     }
 
 
